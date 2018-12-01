@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html ng-app="loginApp">
+<head>
+  <script src="app/lib/angular.min.js"></script>
+</head>
+<body>
+	<a href="a.html">Click</a>
+    <div ng-controller="loginAppCtrl">
+    
+    	UserName: <input type="text" name="userName" ng-model="userName">
+    	Password: <input type="password" name="password" ng-model="password">
+    	<input type="hidden" ng-model="result">
+    	{{result}}
+    	<!-- check : {{userName}} -->
+    	<button ng-click="doClick()">click me</button>
+    	
+    </div>
+    
+    <script>
+    angular.module("loginApp", [])
+            .controller("loginAppCtrl", function($scope,$http,$window,$location) {
+            		 $scope.doClick = function() {
+                    	 //alert($scope.userName+"----"+$scope.password);
+                    	 
+                    	 var data2 = {
+                    		        username: $scope.userName,
+                    		        password: $scope.password,
+                    		        id: 123,
+                    		    };	 
+                    	 /* alert(angular.toJson(data2)); */
+                    	 
+                    	 var data1= angular.toJson(data2);
+                    	 
+                    	 var req = {
+                    			 method: 'POST',
+                    			 url: 'http://localhost:8080/ngrest1/empresources/1/empresource/login',
+                    			 headers: {
+                    			   'Content-Type': 'application/json'
+                    			 },
+                    			 data: angular.toJson(data2),
+                    			}
+                    	 
+                    	 
+                    	 $http(req)
+                    	 	.success(function(data, status, headers, config) {
+                    	 			/* alert("success"); */
+                    	 			$scope.result = "success";
+                    	 			/* $window.location.href = '/a.html'; */
+                    	 			/* $location.path = 'a.html'; 
+                    	 			$scope.view = 'a.html'; */
+                    	 			//$window.location.replace('a.html');
+                    	 			//$location.path( 'a.html' );
+                    	 			/* $location.href = 'a.html'; */
+                    	 			
+                    	 			/* $location.path("#/a.html");   */
+                    	 			
+                    	 			// $location.path('/a.html').replace();
+                    	 			//$location.reload();
+                    	 	          /* $scope.$apply(); */
+                    	 			//$resource('a.html');
+                    	 	        
+                    	 			 /* $routeProvider.when('/', {
+                    	 		        controller: 'loginAppCtrl',
+                    	 		        templateUrl: 'a.html'
+                    	 		    })
+                    	 		    .otherwise({ redirectTo: '/' });   */
+                    	 	          
+                    	 	          
+                    	 	          
+                    	 	          
+                    	 			
+                    	 		})
+                    		.error(function(data, status, headers, config) {
+                    				alert("error"+status+"---"+data);
+                    		});
+                    	 
+                 }
+            });
+  </script>
+    
+    
+    
+   <!--  <script>
+    angular.module("loginApp", [])
+            .controller("loginAppCtrl", function($scope) {
+            		 $scope.doSubmit = function() {
+            			 alert("sadsds");
+                    	 alert($scope.userName+"----"+$scope.password);
+                 }
+            });
+  </script> -->
+  
+</body>
+</html>

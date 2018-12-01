@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="serversrc"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
+	<classpathentry kind="lib" path="lib/ext/asm-all-repackaged-2.2.0-b21.jar"/>
+	<classpathentry kind="lib" path="lib/ext/cglib-2.2.0-b21.jar"/>
+	<classpathentry kind="lib" path="lib/ext/guava-14.0.1.jar"/>
+	<classpathentry kind="lib" path="lib/ext/hk2-api-2.2.0-b21.jar"/>
+	<classpathentry kind="lib" path="lib/ext/hk2-locator-2.2.0-b21.jar"/>
+	<classpathentry kind="lib" path="lib/ext/hk2-utils-2.2.0-b21.jar"/>
+	<classpathentry kind="lib" path="lib/ext/javax.annotation-api-1.2.jar"/>
+	<classpathentry kind="lib" path="lib/ext/javax.inject-2.2.0-b21.jar"/>
+	<classpathentry kind="lib" path="lib/ext/javax.servlet-api-3.0.1.jar"/>
+	<classpathentry kind="lib" path="lib/ext/jaxb-api-2.2.7.jar"/>
+	<classpathentry kind="lib" path="lib/ext/org.osgi.core-4.2.0.jar"/>
+	<classpathentry kind="lib" path="lib/ext/osgi-resource-locator-1.0.1.jar"/>
+	<classpathentry kind="lib" path="lib/ext/persistence-api-1.0.jar"/>
+	<classpathentry kind="lib" path="lib/ext/validation-api-1.1.0.Final.jar"/>
+	<classpathentry kind="lib" path="lib/jax-rs/javax.ws.rs-api-2.0.jar"/>
+	<classpathentry kind="lib" path="lib/jersey/jersey-client.jar"/>
+	<classpathentry kind="lib" path="lib/jersey/jersey-common.jar"/>
+	<classpathentry kind="lib" path="lib/jersey/jersey-container-servlet-core.jar"/>
+	<classpathentry kind="lib" path="lib/jersey/jersey-container-servlet.jar"/>
+	<classpathentry kind="lib" path="lib/jersey/jersey-server.jar"/>
+	<classpathentry kind="lib" path="lib/jackson/jackson-core-asl-1.9.13.jar"/>
+	<classpathentry kind="lib" path="lib/jackson/jackson-mapper-asl-1.9.13.jar"/>
+	<classpathentry kind="lib" path="lib/jackson/jersey-media-json-jackson-2.3.1.jar"/>
+	<classpathentry kind="lib" path="lib/jackson/jackson-xc-1.9.13.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html ng-app="loginApp">
+<head>
+  <script src="lib/angular.min.js"></script>
+</head>
+<body>
+    <div ng-controller="loginAppCtrl">
+    
+    	UserName: <input type="text" name="userName" ng-model="userName">
+    	Password: <input type="password" name="password" ng-model="password">
+    	<!-- check : {{userName}} -->
+    	<button ng-click="doClick()">click me</button>
+    	
+    </div>
+    
+    <script>
+    angular.module("loginApp", [])
+            .controller("loginAppCtrl", function($scope,$http) {
+            		 $scope.doClick = function() {
+                    	 //alert($scope.userName+"----"+$scope.password);
+                    	 
+                    	 var data2 = {
+                    		        username: $scope.userName,
+                    		        password: $scope.password,
+                    		        id: 123,
+                    		    };	 
+                    	 alert(angular.toJson(data2));
+                    	 
+                    	 /* $http({
+                    		    method: 'POST', 
+                    		    url: 'http://localhost:8080/ngrest1/empresources/1/empresource/login', 
+                    		    data: angular.toJson(data)
+                    		}); */
+                    	 
+                    	 /* var url = 'http://localhost:8080/ngrest1/empresources/1/empresource/login'; */
+                    	 var data1= angular.toJson(data2);
+                    	 
+                    	 
+                    	 var req = {
+                    			 method: 'POST',
+                    			 url: 'http://localhost:8080/ngrest1/empresources/1/empresource/login',
+                    			 headers: {
+                    			   'Content-Type': 'application/json',
+                    			   'Access-Control-Allow-Origin': '*',
+                    			   'Access-Control-Allow-Methods': 'POST, GET, OPTIONS, PUT',
+                    			   'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
+                    			 },
+                    			 data: data1,
+                    			}
+                    	 
+                    	 
+                    	 $http(req)
+                    	 	.success(function(data, status, headers, config) {
+                    	 		alert("success");
+                    	 		})
+                    		.error(function(data, status, headers, config) {
+                    			alert("error"+status+"---"+data);
+                    		});
+                    	 
+                    	 
+                    	 
+                    	 /* $http.post(url, data1).
+                    	  success(function(data, status, headers, config) {
+                    		  alert("success");
+                    	    // this callback will be called asynchronously
+                    	    // when the response is available
+                    	  }).
+                    	  error(function(data, status, headers, config) {
+                    		  alert("error"+status+"---"+data);
+                    	    // called asynchronously if an error occurs
+                    	    // or server returns response with an error status.
+                    	  });  */
+                    	 
+                    	 
+                    	 
+                    	 
+                    	 
+                 }
+            });
+  </script>
+    
+    
+    
+   <!--  <script>
+    angular.module("loginApp", [])
+            .controller("loginAppCtrl", function($scope) {
+            		 $scope.doSubmit = function() {
+            			 alert("sadsds");
+                    	 alert($scope.userName+"----"+$scope.password);
+                 }
+            });
+  </script> -->
+  
+</body>
+</html>

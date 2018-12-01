@@ -1,0 +1,45 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd 
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+	<context:component-scan base-package="com.itc" />
+
+	<bean id="dbDetails" class="com.itc.models.DatabaseDetails">
+		<constructor-arg name="dbName" value="Oracle 10g" />
+		<constructor-arg name="userName" value="scott" />
+		<constructor-arg name="password" value="tiger" />
+		<constructor-arg name="hostUrl" value="localhost" />
+		<constructor-arg name="schemaName" value="orcl" />
+	</bean>
+
+	<bean id="dbHandler" class="com.itc.handlers.DatabaseHandlerImpl" />
+
+	<bean id="validator" class="com.itc.handlers.ValidatorImpl" />
+
+	<bean id="regHandler" class="com.itc.handlers.RegistrationHandler" />
+
+	<!-- <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> 
+		<property name="driverClassName" value="com.mysql.jdbc.Driver"/> <property 
+		name="url" value="jdbc:mysql://localhost:3306/TEST"/> <property name="username" 
+		value="root"/> <property name="password" value="password"/> </bean> -->
+
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
+		<property name="url" value="jdbc:oracle:thin:@localhost:1521:orcl" />
+		<property name="username" value="scott" />
+		<property name="password" value="tiger" />
+	</bean>
+	
+	<bean id="regJDBCTemplate" class="com.itc.spring.dao.RegistrationJDBCTemplate">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	
+	<bean id="loginJDBCTemplate" class="com.itc.spring.dao.LoginJDBCTemplate">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+
+</beans>
